@@ -2,6 +2,8 @@ import React from "react";
 import "./App.css";
 //fontawesome and install fontawesome package //npm install @fortawesome/fontawesome-free
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 //react router dom
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 //navbar
@@ -156,6 +158,16 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnHover
+        draggable
+        theme="colored"
+      />
     </>
   );
 };

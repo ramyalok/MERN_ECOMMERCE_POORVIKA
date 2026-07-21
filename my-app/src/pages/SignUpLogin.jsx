@@ -277,7 +277,7 @@ const SignUpLogin = () => {
                         </span>
                       </div>
                       <span
-                        onClick={() => navigate("/forgot-password")}
+                        onClick={() => navigate("/forgotpassword")}
                         className="text-amber-600 text-sm font-semibold cursor-pointer hover:underline"
                       >
                         Forgot Password?
@@ -325,8 +325,8 @@ const SignUpLogin = () => {
                   {/*  Login Your Account and Explore It */}
                 </h3>
                 <p className="max-w-sm mx-auto mt-3">
-                  Try to explore your habits, reach your personal goals, and
-                  stay motivated every day.
+                  Try to explore our Poorvika app, reach your monthly purchases, and
+                  be connected with Poorvika.
                 </p>
                 <button
                   type="button"
