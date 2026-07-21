@@ -1,0 +1,229 @@
+npm install express mongoose dotenv bcryptjs jsonwebtoken cors helmet express-async-handler express-validator
+npm i -D nodemon
+//backend thunder client 
+1. http://localhost:4000/users/register
+
+{
+  "username": "Ramya K",
+  "email": "ramya@gmail.com",
+  "password": "Ramya@12345"
+}
+{
+  "message": "User registered successfully",
+  "success": true,
+  "data": {
+    "id": "6a5c8d1bfd6185d23aaf98df",
+    "username": "Ramya K",
+    "email": "ramya@gmail.com",
+    "role": "user"
+  }
+}
+
+2.http://localhost:4000/users/login
+{
+  "message": "login successfully",
+  "success": true,
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhNWM4ZDFiZmQ2MTg1ZDIzYWFmOThkZiIsImlhdCI6MTc4NDQ1MDQ0NCwiZXhwIjoxNzg1MDU1MjQ0fQ.ac6s4AmU3ULdsJYRd18yx-uRx49KRL19cr6BlXggOP0",
+  "data": {
+    "id": "6a5c8d1bfd6185d23aaf98df",
+    "username": "Ramya K",
+    "email": "ramya@gmail.com",
+    "role": "user"
+  }
+}
+3. forgot password -put
+http://localhost:4000/users/forgotpassword
+{
+  "email": "ramya@gmail.com",
+  "password": "Ramya@12345"
+}
+{
+  "success": true,
+  "message": "Password updated"
+}
+4. get profile 
+http://localhost:4000/usersprofile/profile
+{
+  "success": true,
+  "data": {
+    "_id": "6a5c8d1bfd6185d23aaf98df",
+    "username": "Ramya K",
+    "email": "ramya@gmail.com",
+    "password": "$2b$10$SHuL61rHaRnPuUFv4ZX2UeiLiN8x10oCYFfd1tKSzUNGe4uan3oTC",
+    "role": "user",
+    "createdAt": "2026-07-19T08:38:51.284Z",
+    "updatedAt": "2026-07-19T08:38:51.284Z",
+    "__v": 0
+  }
+}
+
+// product routes
+//admin token create products--login ramya@gmail.com  ramya@12345
+1. post --- http://localhost:4000/products 
+{
+  "name": "iPhone 16",
+  "description": "Apple flagship smartphone",
+  "price": 89999,
+  "stock": 20,
+  "category": "Mobiles",
+  "brand": "Apple",
+  "image": "https://example.com/iphone16.jpg"
+}
+{
+  "success": true,
+  "message": "Product created successfully",
+  "data": {
+    "name": "iPhone 16",
+    "description": "Apple flagship smartphone",
+    "price": 89999,
+    "stock": 20,
+    "category": "Mobiles",
+    "brand": "Apple",
+    "image": "https://example.com/iphone16.jpg",
+    "rating": 0,
+    "numReviews": 0,
+    "_id": "6a5cb5ec2df4368119df211e",
+    "createdAt": "2026-07-19T11:33:00.743Z",
+    "updatedAt": "2026-07-19T11:33:00.743Z",
+    "__v": 0
+  }
+}
+2.get - http://localhost:4000/products it returns all products
+{
+  "success": true,
+  "count": 6,
+  "data": [
+    {
+      "_id": "6a5cb5ec2df4368119df211e",
+      "name": "iPhone 16",
+      "description": "Apple flagship smartphone",
+      "price": 89999,
+      "stock": 20,
+      "category": "Mobiles",
+      "brand": "Apple",
+      "image": "https://example.com/iphone16.jpg",
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-07-19T11:33:00.743Z",
+      "updatedAt": "2026-07-19T11:33:00.743Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5cb6c32df4368119df211f",
+      "name": "iPhone 14",
+      "description": "Apple Kingfisher smartphone",
+      "price": 79999,
+      "stock": 10,
+      "category": "Mobiles",
+      "brand": "Apple",
+      "image": "https://example.com/iphone14.jpg",
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-07-19T11:36:35.121Z",
+      "updatedAt": "2026-07-19T11:36:35.121Z",
+      "__v": 0
+    },
+    {
+      "_id": "6a5cb7052df4368119df2120",
+      "name": "S-24 ultra",
+      "description": "Samsung Kingfisher smartphone",
+      "price": 119999,
+      "stock": 15,
+      "category": "Mobiles",
+      "brand": "Samsung",
+      "image": "https://example.com/s24.jpg",
+      "rating": 0,
+      "numReviews": 0,
+      "createdAt": "2026-07-19T11:37:41.402Z",
+      "updatedAt": "2026-07-19T11:37:41.402Z",
+      "__v": 0
+    },.....]}
+ 
+ 3. put --update product --http://localhost:4000/products/6a5cb7c52df4368119df2123
+ {
+  "name": "kushion Sofa set and Bed cot",
+  "description": "Sleep Well super deluxe bed and sofa",
+  "price": 69999,
+  "stock":14,
+  "category": "Furniture",
+  "brand": "Sleep well",
+  "image": "https://example.com/sleep.jpg"
+}
+{
+  "success": true,
+  "message": "Product updated successfully",
+  "data": {
+    "_id": "6a5cb7c52df4368119df2123",
+    "name": "kushion Sofa set and Bed cot",
+    "description": "Sleep Well super deluxe bed and sofa",
+    "price": 69999,
+    "stock": 14,
+    "category": "Furniture",
+    "brand": "Sleep well",
+    "image": "https://example.com/sleep.jpg",
+    "rating": 0,
+    "numReviews": 0,
+    "createdAt": "2026-07-19T11:40:53.505Z",
+    "updatedAt": "2026-07-19T11:46:42.986Z",
+    "__v": 0
+  }
+}
+4.delete -delete product --http://localhost:4000/products/6a5cb7c52df4368119df2123
+{
+  "success": true,
+  "message": "Product deleted successfully"
+}
+5.search products -get 
+http://localhost:4000/products?search=iphone 
+http://localhost:4000/products?category=Mobiles
+http://localhost:4000/products?sort=low
+http://localhost:4000/products?sort=high
+http://localhost:4000/products?stock=24
+http://localhost:4000/products?search=iphone&category=Mobiles&stock=20&sort=low
+http://localhost:4000/products?category=mobiles&search=iphone&stock=20&sort=high
+
+6.orders create users admin
+1.createorder-post -http://localhost:4000/orders usertoken oradmin token 
+{
+  "products": [
+    {
+      "product": "6a5cb5ec2df4368119df211e",
+      "quantity": 2
+    },
+    {
+      "product": "6a5cb76f2df4368119df2122",
+      "quantity": 1
+    }
+  ],
+  "shippingAddress": "Chennai, Tamil Nadu",
+  "paymentMethod": "COD"
+}
+2.getmyprders  -get - http://localhost:4000/orders/myorders
+3.update order -put -auth -http://localhost:4000/orders/6a5cecf8743f1ec0f94f95fe
+{
+  "products": [
+    {
+      "product": "6a5cb5ec2df4368119df211e",
+      "quantity": 2
+    },
+    {
+      "product": "6a5cb76f2df4368119df2122",
+      "quantity": 5
+    }
+  ],
+  "shippingAddress": "Chennai, Tamil Nadu",
+}
+4.delete order http://localhost:4000/orders/ORDER_ID
+4.admin token getAllOrders
+get -http://localhost:4000/orders/allorders
+4.admin token status updateOrderStatus
+put -http://localhost:4000/orders/6a5cecf8743f1ec0f94f95fe/status
+ {
+    "status":"Shipped"
+}
+5
+
+frontend 
+// npm create vite@latest frontend_app
+//npm install axios react-router-dom react-redux @reduxjs/toolkit react-hot-toast
+//npm install tailwindcss @tailwindcss/vite
